@@ -1,7 +1,18 @@
 import requests
 from urllib.parse import urlparse
 from pathlib import Path
+import os
 
+
+def post_image_to_tg(bot, chat_id, image):
+    with open(image, 'rb') as image_file:
+        size = image_file.seek(0, os.SEEK_END)
+        image_file.seek(0)
+        if size < 20000000:
+            bot.send_photo(chat_id=chat_id, photo=image_file)
+            return True
+        else:
+            return False
 
 def get_nasa_image(url, path, token):
     a = urlparse(url)
