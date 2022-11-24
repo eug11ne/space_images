@@ -42,5 +42,5 @@ def get_image(url, path):
         with open(f'images/{file_name}', 'wb') as file:
             file.write(img.content)
         return True
-    except:
+    except requests.exceptions.HTTPError:
         return False
