@@ -1,9 +1,5 @@
-import requests
-from urllib.parse import urlparse
-from pathlib import Path
 import os
 import telegram
-import time
 from dotenv import load_dotenv
 
 
