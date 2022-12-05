@@ -1,15 +1,17 @@
 import os
 import telegram
 from dotenv import load_dotenv
-from common_functions import post_image_to_tg
+from common_functions import post_image_to_tg, get_variables
 from pathlib import Path
 import random
 import argparse
 
 def main():
+    try:
+        tg_key, chat_id = get_variables(['TG_KEY', 'CHAT_ID'])
+    except KeyError as e:
+        print(f'Environment variable {e} not set')
 
-    load_dotenv()
-    tg_key = os.getenv('TG_KEY')
     parser = argparse.ArgumentParser()
     parser.add_argument("name", nargs='?', type=str, help="image name")
     args = parser.parse_args()
@@ -18,10 +20,9 @@ def main():
         image_paths = [img_path for img_path in Path('images').glob('*.*')]
         image = random.choice(image_paths)
     else:
-        image = f'images/{image_name}'
+        image = Path.cwd() / 'images' / image_name
 
     bot = telegram.Bot(token=tg_key)
-    chat_id = '@space_overview'
     not_posted = True
 
     while not_posted:
