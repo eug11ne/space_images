@@ -4,7 +4,9 @@ Upload images of space to Telegram channel @space_overview. Use three scripts to
 
 ### How to install
 
-At first you have to obtain NASA API key at https://api.nasa.gov/#apod and add it to **.env** file as `NASA_API_KEY` parameter. Example:
+Clone repo from github.
+
+Obtain NASA API key at https://api.nasa.gov/#apod and add it to **.env** file as `NASA_API_KEY` parameter. Example:
 
 ```
 NASA_API_KEY=abc12def3g456h7i78j4ea8535fbebb83d0dc8878
