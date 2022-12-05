@@ -11,7 +11,7 @@ Create a Python vitrual environment using the following command:
 Copy space_images repo into the virtual environment folder. Open git shell and enter the folloing command: 
 
 ```
-git clone "https://github.com/devmanorg/everything-recognition.git"
+git clone "https://github.com/eug11ne/space_images"
 ```
 
 Run `activate.bat` from **Scripts** subfolder to activate the virtual envirionment. 
