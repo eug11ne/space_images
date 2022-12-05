@@ -8,13 +8,13 @@ Create a Python vitrual environment using the following command:
 
 <pre>pip venv <i>dir-name</i></pre>
 
+Run `activate.bat` from **Scripts** subfolder to activate the virtual envirionment. 
+
 Copy space_images repo into the virtual environment folder. Open git shell and enter the folloing command: 
 
 ```
 git clone "https://github.com/eug11ne/space_images"
 ```
-
-Run `activate.bat` from **Scripts** subfolder to activate the virtual envirionment. 
 
 Enter the following command in the command line: 
 
