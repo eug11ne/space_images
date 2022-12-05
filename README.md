@@ -1,20 +1,34 @@
 # space_images
  
 Upload images of space to Telegram channel @space_overview. Use three scripts to fill the **images** folder with space pictures and then publish them to tg channel. 
+
+### How to install
+
+At first you have to obtain NASA API key at https://api.nasa.gov/#apod and add it to **.env** file as `NASA_API_KEY` parameter. Example:
+
+```
+NASA_API_KEY=abc12def3g456h7i78j4ea8535fbebb83d0dc8878
+```
+Place **.env** file in the root folder of the project. 
+
+Enter the following command in the command line: 
+
+<pre>python pip install -r requirements.txt</pre>
+
  
 ## fetch_spacex_images.py
 Downloads images from Space X API. 
 
 ### How to use
 
-Enter the following command in the command line: 
+Enter the following command: 
 
 <pre>python fetch_spacex_images.py <i>launch_id</i></pre>
 
 where *launch_id* is Space X launch id. If omitted, script uses the latest launch. 
 
 ## fetch_nasa_apod_images.py
-Downloads images from NASA APOD database. At first you have to get a NASA API key at https://api.nasa.gov/#apod and add it to **.env** file as `NASA_API_KEY` parameter. 
+Downloads images from NASA APOD database. 
 
 ### How to use
 
@@ -25,7 +39,7 @@ Enter the following command:
 where *count* is the number of images to retrieve.
 
 ## fetch_nasa_epic_images.py
-Downloads images from NASA EPIC database. At first you have to get a NASA API key at https://api.nasa.gov/#apod and add it to **.env** file as `NASA_API_KEY` parameter. 
+Downloads images from NASA EPIC database. 
 
 ### How to use
 
