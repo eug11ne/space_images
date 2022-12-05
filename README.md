@@ -4,7 +4,20 @@ Upload images of space to Telegram channel @space_overview. Use three scripts to
 
 ### How to install
 
-Clone repo from github.
+Create a Python vitrual environment using the following command: 
+
+<pre>pip venv <i>dir-name</i></pre>
+
+Copy space_images repo into the virtual environment folder. Open git shell and enter the folloing command: 
+
+```
+git clone "https://github.com/devmanorg/everything-recognition.git"
+```
+Run `activate.bat` from **Scripts** subfolder to activate the virtual envirionment. 
+
+Enter the following command in the command line: 
+
+<pre>python pip install -r requirements.txt</pre>
 
 Obtain NASA API key at https://api.nasa.gov/#apod and add it to **.env** file as `NASA_API_KEY` parameter. Example:
 
@@ -13,9 +26,6 @@ NASA_API_KEY=abc12def3g456h7i78j4ea8535fbebb83d0dc8878
 ```
 Place **.env** file in the root folder of the project. 
 
-Enter the following command in the command line: 
-
-<pre>python pip install -r requirements.txt</pre>
 
  
 ## fetch_spacex_images.py
