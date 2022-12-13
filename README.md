@@ -1,6 +1,6 @@
 # space_images
  
-Upload images of space to Telegram channel @space_overview. Use three scripts to fill the **images** folder with space pictures and then publish them to tg channel. 
+Upload images of space to the specified Telegram channel. Use three scripts to fill the **images** folder with space pictures and then publish them to the tg channel. 
 
 ### How to install
 
@@ -8,12 +8,13 @@ Create a Python vitrual environment using the following command:
 
 <pre>pip venv <i>dir-name</i></pre>
 
+Run `activate.bat` from **Scripts** subfolder to activate the virtual envirionment. 
+
 Copy space_images repo into the virtual environment folder. Open git shell and enter the folloing command: 
 
 ```
-git clone "https://github.com/devmanorg/everything-recognition.git"
+git clone "https://github.com/eug11ne/space_images"
 ```
-Run `activate.bat` from **Scripts** subfolder to activate the virtual envirionment. 
 
 Enter the following command in the command line: 
 
@@ -24,9 +25,12 @@ Obtain NASA API key at https://api.nasa.gov/#apod and add it to **.env** file as
 ```
 NASA_API_KEY=abc12def3g456h7i78j4ea8535fbebb83d0dc8878
 ```
+Also, add the following parameters to **.env** file: 
+- `TG_KEY` - your telegram bot token. 
+- `TG_PUBLICATION_PERIOD` - number of hours to wait before publishing the next image. 
+- `CHAT_ID` - name of the tg channel (for example, @space_overview)
+
 Place **.env** file in the root folder of the project. 
-
-
  
 ## fetch_spacex_images.py
 Downloads images from Space X API. 
@@ -71,9 +75,7 @@ where *image* is an image you want to publish. If omitted, it is chosen randomly
 
 
 ## tg-bot-all.py
-Publishes a random picture from **images** folder to tg channel every N hours. It uses the following parameters from **.env** file: 
-- `TG_KEY` - your telegram bot token. 
-- `TG_PUBLICATION_PERIOD` - number of hours to wait before publishing the next image. 
+Publishes a random picture from **images** folder to tg channel every N hours. 
 
 ## common_functions.py
 Contains a set of common functions that are reused by the scripts. 
