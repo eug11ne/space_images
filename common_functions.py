@@ -4,14 +4,7 @@ from dotenv import load_dotenv
 
 def post_image_to_tg(bot, chat_id, image):
     with open(image, 'rb') as image_file:
-        size = os.path.getsize(image)
-
-        if size < 20000000:
-            bot.send_photo(chat_id=chat_id, photo=image_file)
-            return True
-
-        else:
-            return False
+        bot.send_photo(chat_id=chat_id, photo=image_file)
 
 
 def is_right_size(file, max_size):
