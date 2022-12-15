@@ -6,6 +6,7 @@ import argparse
 
 
 def main():
+    MAX_IMAGE_SIZE = 20000000
     tg_key, chat_id = get_variables(['TG_KEY', 'TG_CHAT_ID'])
     parser = argparse.ArgumentParser()
     parser.add_argument("name", nargs='?', type=str, help="image name")
@@ -14,16 +15,16 @@ def main():
     if image_name is None:
         image_paths = [img_path for img_path in Path('images').glob('*.*')]
         image = random.choice(image_paths)
+        image_number = len(image_paths)
     else:
         image = Path.cwd() / 'images' / image_name
 
     bot = telegram.Bot(token=tg_key)
-    not_posted = True
 
-    while not_posted:
-        if is_right_size(image, 20000000):
+    for count in range(image_number):
+        if is_right_size(image, MAX_IMAGE_SIZE):
             post_image_to_tg(bot, chat_id, image)
-            not_posted = False
+            break
         else:
             image = random.choice(image_paths)
 

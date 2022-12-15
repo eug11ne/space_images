@@ -9,13 +9,10 @@ def post_image_to_tg(bot, chat_id, image):
 
 def is_right_size(file, max_size):
     size = os.path.getsize(file)
-    if size < max_size:
-        return True
-    else:
-        return False
+    return size < max_size
 
 
 def get_variables(var_list):
     load_dotenv()
-    values = [os.environ[i] for i in var_list]
+    values = [os.environ[list_entry] for list_entry in var_list]
     return values

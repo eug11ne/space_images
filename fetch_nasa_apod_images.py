@@ -1,14 +1,12 @@
 import requests
-from download_tools import get_image
+from download_tools import get_image, get_response
 import argparse
 from common_functions import get_variables
 
 
 def main():
-    try:
-        nasa_token = get_variables(['NASA_API_KEY'])
-    except KeyError as e:
-        print(f'Environment variable {e} not set')
+
+    nasa_token = get_variables(['NASA_API_KEY'])
 
     parser = argparse.ArgumentParser()
     parser.add_argument("count", nargs='?', const=1,
@@ -16,16 +14,8 @@ def main():
                         help="Number of images")
     args = parser.parse_args()
     count = args.count
-    params = {'api_key': nasa_token,
-              'count': count}
-    try:
-        response = requests.get('https://api.nasa.gov/planetary/apod',
-                                params=params)
-        response.raise_for_status()
-        get_nasa_apod_image(response)
-
-    except requests.exceptions.HTTPError:
-        print("Can't download anything")
+    response = get_response('https://api.nasa.gov/planetary/apod', nasa_token, count)
+    get_nasa_apod_image(response)
 
 
 def get_nasa_apod_image(response):
