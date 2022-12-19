@@ -1,13 +1,17 @@
 import telegram
-from common_functions import post_image_to_tg, get_variables, is_right_size
+from dotenv import load_dotenv
+from common_functions import post_image_to_tg, is_right_size
 from pathlib import Path
 import random
 import argparse
+import os
 
 
 def main():
     MAX_IMAGE_SIZE = 20000000
-    tg_key, chat_id = get_variables(['TG_KEY', 'TG_CHAT_ID'])
+    load_dotenv()
+    tg_key = os.environ['TG_KEY']
+    chat_id = os.environ['TG_CHAT_ID']
     parser = argparse.ArgumentParser()
     parser.add_argument("name", nargs='?', type=str, help="image name")
     args = parser.parse_args()

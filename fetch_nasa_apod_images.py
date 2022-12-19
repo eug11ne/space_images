@@ -1,12 +1,13 @@
 import requests
 from download_tools import get_image, get_response
 import argparse
-from common_functions import get_variables
+from dotenv import load_dotenv
+import os
 
 
 def main():
-
-    nasa_token = get_variables(['NASA_API_KEY'])
+    load_dotenv()
+    nasa_token = os.environ['NASA_API_KEY']
 
     parser = argparse.ArgumentParser()
     parser.add_argument("count", nargs='?', const=1,
@@ -20,7 +21,6 @@ def main():
 
 def get_nasa_apod_image(response):
     for item in response.json():
-        print(item['url'])
         if item['media_type'] == 'image':
             get_image(item['url'], 'images')
 

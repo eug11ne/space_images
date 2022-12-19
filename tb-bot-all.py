@@ -1,7 +1,8 @@
 import time
 import telegram
-from common_functions import post_image_to_tg, get_variables, is_right_size
+from common_functions import post_image_to_tg, is_right_size
 from pathlib import Path
+from dotenv import load_dotenv
 import random
 import os
 
@@ -10,8 +11,9 @@ def main():
     MAX_IMAGE_SIZE = 20000000
     NUMBER_OF_SECONDS_IN_ONE_HOUR = 3600
 
-    tg_key, chat_id = get_variables(['TG_KEY',
-                                     'TG_CHAT_ID'])
+    load_dotenv()
+    tg_key = os.environ['TG_KEY']
+    chat_id = os.environ['TG_CHAT_ID']
     number_of_hours = os.getenv('TG_PUBLICATION_PERIOD', default=4)
     period = int(number_of_hours) * NUMBER_OF_SECONDS_IN_ONE_HOUR
     bot = telegram.Bot(token=tg_key)
