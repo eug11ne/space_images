@@ -4,13 +4,13 @@ Upload images of space to the specified Telegram channel. Use three scripts to f
 
 ### How to install
 
-Create a Python vitrual environment using the following command: 
+Create a Python virtual environment using the following command: 
 
 <pre>pip venv <i>dir-name</i></pre>
 
-Run `activate.bat` from **Scripts** subfolder to activate the virtual envirionment. 
+Run `activate.bat` from **Scripts** subfolder to activate the virtual environment. 
 
-Copy space_images repo into the virtual environment folder. Open git shell and enter the folloing command: 
+Copy space_images repo into the virtual environment folder. Open git shell and enter the following command: 
 
 ```
 git clone "https://github.com/eug11ne/space_images"
@@ -28,7 +28,7 @@ NASA_API_KEY=abc12def3g456h7i78j4ea8535fbebb83d0dc8878
 Also, add the following parameters to **.env** file: 
 - `TG_KEY` - your telegram bot token. 
 - `TG_PUBLICATION_PERIOD` - number of hours to wait before publishing the next image. 
-- `CHAT_ID` - name of the tg channel (for example, @space_overview)
+- `TG_CHAT_ID` - name of the tg channel (for example, @space_overview)
 
 Place **.env** file in the root folder of the project. 
  
