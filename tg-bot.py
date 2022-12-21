@@ -16,10 +16,11 @@ def main():
     parser.add_argument("name", nargs='?', type=str, help="image name")
     args = parser.parse_args()
     image_name = args.name
+    image_paths = [img_path for img_path in Path('images').glob('*.*')]
+    image_number = len(image_paths)
     if image_name is None:
-        image_paths = [img_path for img_path in Path('images').glob('*.*')]
         image = random.choice(image_paths)
-        image_number = len(image_paths)
+
     else:
         image = Path.cwd() / 'images' / image_name
 
