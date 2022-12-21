@@ -1,4 +1,3 @@
-import requests
 from datetime import datetime
 import os
 from download_tools import get_image, get_response
