@@ -1,4 +1,3 @@
-import requests
 from download_tools import get_image, get_response
 import argparse
 from dotenv import load_dotenv
